@@ -191,7 +191,7 @@ def main():
         opt.s_dim = feat_s[-1].shape[1]
         opt.t_dim = feat_t[-1].shape[1]
         opt.n_data = n_data
-        criterion_kd = CRDLoss(opt)
+        criterion_kd = CRDLoss(opt) # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<,
         module_list.append(criterion_kd.embed_s)
         module_list.append(criterion_kd.embed_t)
         trainable_list.append(criterion_kd.embed_s)
@@ -294,7 +294,7 @@ def main():
         print("==> training...")
 
         time1 = time.time()
-        train_acc, train_loss = train(epoch, train_loader, module_list, criterion_list, optimizer, opt)
+        train_acc, train_loss = train(epoch, train_loader, module_list, criterion_list, optimizer, opt) # <<<<<<<<< train_distill
         time2 = time.time()
         print('epoch {}, total time {:.2f}'.format(epoch, time2 - time1))
 
